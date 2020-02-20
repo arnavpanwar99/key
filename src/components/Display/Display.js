@@ -4,15 +4,15 @@ import s from './Display.module.scss';
 class Display extends React.Component{
     
     componentDidMount(){
-        window.addEventListener('keypress', this.handleKeypress)
+        window.addEventListener('keydown', this.handleKeypress)
     }
 
     componentWillUnmount(){
-        window.removeEventListener('keypress', this.handleKeypress)
+        window.removeEventListener('keydown', this.handleKeypress)
     }
 
-    handleKeypress = ({ key, charCode }) => {
-        this.setState({ code: charCode, visual: charCode!==32?key:'spacebar' });
+    handleKeypress = ({ key, keyCode }) => {
+        this.setState({ code: keyCode, visual: keyCode!==32?key:'spacebar' });
     }
 
     state={
